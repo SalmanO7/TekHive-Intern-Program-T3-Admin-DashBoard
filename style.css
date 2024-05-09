@@ -1,0 +1,504 @@
+@import url('https://fonts.googleapis.com/css2?family=Reddit+Sans:ital@0;1&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Reddit Sans", sans-serif;
+
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+
+.navbar {
+    position: fixed;
+    width: 277px;
+    height: 100%;
+    background: green;
+    border-left: 5px solid green;
+    transition: 0.5s;
+    overflow: hidden;
+}
+
+.navbar ul {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.navbar ul li {
+    position: relative;
+    width: 100%;
+    list-style: none;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+
+.navbar ul li:hover {
+    background-color: #fff;
+}
+
+.navbar ul li:nth-child(1) {
+    margin-bottom: 40px;
+    pointer-events: none;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    position: relative;
+    width: 100%;
+    color: white;
+
+    display: flex;
+    align-items: center;
+}
+
+.navbar ul li a:hover {
+    color: green;
+}
+
+.navbar ul li a .icon {
+    position: relative;
+    display: block;
+    min-width: 60px;
+    line-height: 44px;
+    text-align: center;
+}
+
+.navbar ul li a .icon ion-icon {
+    font-size: 20px;
+}
+
+.navbar ul li a .title {
+    position: relative;
+    display: block;
+    padding: 0 10px;
+    height: 40px;
+    line-height: 35px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.navbar ul li:hover a::before {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: -50px;
+    width: 50px;
+    height: 50px;
+    background: transparent;
+    border-radius: 50%;
+    box-shadow: 28.8px 35px 0 10px white;
+    pointer-events: none;
+
+}
+
+.navbar ul li:hover a::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: -50px;
+    width: 50px;
+    height: 50px;
+    background: transparent;
+    border-radius: 50%;
+    box-shadow: 28.8px -35px 0 10px white;
+
+}
+
+.navbar.active {
+    width: 71px;
+}
+
+/* main */
+
+.main {
+    position: absolute;
+    width: calc(100% - 277px);
+    left: 277px;
+    min-height: 100%;
+    background: white;
+    transition: 0.5s;
+}
+
+.main.active {
+    width: calc(100% - 71px);
+    left: 71px;
+}
+
+.top-bar {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 2px;
+    display: flex;
+    align-items: center;
+    top: -30px;
+}
+
+.toggle {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    background: #fff;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.search {
+    position: relative;
+    width: 400px;
+    margin: 0 10px;
+}
+
+.search label {
+    position: relative;
+    width: 100%;
+}
+
+.search input {
+    width: 100%;
+    padding: 5px 20px;
+    border-radius: 40px;
+    outline: none;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    height: 40px;
+}
+
+.search input[type="text"] {
+    padding-left: 40px;
+}
+
+.search label ion-icon {
+    position: absolute;
+    top: 0;
+    border: none;
+    left: 10px;
+    font-size: 1.5rem;
+}
+
+.user-img {
+    position: relative;
+    width: 40px;
+    border-radius: 50%;
+    height: 40px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.user-img img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-box {
+    position: relative;
+    width: 100%;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 30px;
+}
+
+.card-box .card {
+    position: relative;
+    background: white;
+    padding: 20px;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.09);
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.card-box .card .numbers {
+    position: relative;
+    font-weight: 500;
+    font-size: 1.7rem;
+    color: green;
+}
+
+.card-box .card .card-names {
+    color: gray;
+    font-size: 1.1rem;
+    margin-top: 5px;
+}
+
+.card-box .card .card-icon {
+    top: 10px;
+    right: 10px;
+    position: absolute;
+    font-size: 1.4rem;
+}
+
+.card-box .card:hover {
+    background: green;
+    transition: 0.7s ease-out;
+}
+
+.card-box .card:hover .numbers,
+.card-box .card:hover .card-names,
+.card-box .card:hover ion-icon {
+    color: white;
+    transition: 0.7s ease-out;
+}
+
+.detail {
+    width: 100%;
+    padding: 10px;
+    max-height: 700px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-gap: 30px;
+    margin-top: 10px;
+}
+
+.detail .recent-orders {
+    width: 100%;
+    padding: 20px 20px 0 20px;
+    display: grid;
+    min-height: 500px;
+    background: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.09);
+    border-radius: 20px;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-bottom: -100rem;
+}
+
+.card-header h2 {
+    font-weight: 600;
+    color: green;
+}
+
+.btn {
+    position: relative;
+    padding: 5px 10px;
+    background: green;
+    text-decoration: none;
+    color: white;
+    border-radius: 6px;
+}
+
+.detail .table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.table thead td {
+    font-weight: 600;
+}
+
+.table tr {
+    color: black;
+    border-bottom: .5px solid rgba(0, 0, 0, 0.04);
+}
+
+.table tr:last-child {
+    border-bottom: none;
+}
+
+.table tr:hover {
+    background: green;
+    color: white;
+}
+
+.table td {
+    padding: 7px 10px;
+}
+
+.table td:last-child {
+    text-align: end;
+}
+
+.table td:nth-child(2) {
+    text-align: end;
+}
+
+.table td:nth-child(3) {
+    text-align: end;
+}
+
+.status.delivered {
+    padding: 2px 4px;
+    background: blue;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.status.inprograss {
+    padding: 2px 4px;
+    background: rgb(183, 29, 183);
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.status.return {
+    padding: 2px 4px;
+    background: red;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.status.pending {
+    padding: 2px 4px;
+    background: brown;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.recent-customar {
+    display: grid;
+    min-height: 500px;
+    padding: 20px;
+    box-shadow: 0 7px 10px 2px rgba(0, 0, 0, 0.09);
+    border-radius: 20px;
+    background: white;
+}
+
+.customar {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 10px 10px;
+    padding-top: 10px;
+}
+
+.customar-header {
+    display: flex;
+    margin: 5px 10px;
+    color: green;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-bottom: 10px;
+}
+
+
+.customar:hover {
+    background: green;
+    color: white;
+    padding: 5px;
+}
+
+.customar .img img {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+}
+
+.customar .detail {
+    margin-bottom: 18px;
+}
+
+.customar .detail h4 {
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.1rem;
+}
+
+.customar .detail h4 span {
+    font-size: 11px;
+    color: gray;
+}
+
+.customar:hover .detail h4 span {
+    color: white;
+}
+
+
+/* responsive  */
+
+@media screen and (max-width: 991px) {
+    .navbar {
+        left: -277px;
+    }
+
+    /* .graph-box{
+        grid-template-columns: 1fr;
+    } */
+    .navbar.active {
+        width: 277px;
+        left: 0;
+    }
+
+    .main {
+        width: 100%;
+        left: 0;
+    }
+
+    .main.active {
+        left: 277px;
+    }
+
+    .card-box {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .detail {
+        grid-template-columns: repeat(1, 1fr);
+    }
+ 
+    .recent-orders {
+        overflow-x: auto;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .card-box {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .card-header {
+        font-size: 18px;
+        margin: 10px;
+    }
+
+    .status.inprograss {
+        font-size: 13px;
+    }
+
+    .user-img {
+        min-height: 40px;
+    }
+
+    .navbar {
+        width: 100%;
+        left: -100%;
+        z-index: 1000;
+    }
+
+    .toggle {
+        z-index: 1001;
+    }
+}
